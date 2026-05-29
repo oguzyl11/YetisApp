@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Yeni Sipariş Teklifi - Yetiş İş Ortağı</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Design System Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container": "#f0eded",
+                        "outline-variant": "#bec9c3",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dcd9d9",
+                        "tertiary": "#6b3f00",
+                        "surface-bright": "#fcf9f8",
+                        "on-tertiary-container": "#ffd5ac",
+                        "primary-fixed": "#a0f3d4",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "subtle-text": "#6B6B6B",
+                        "outline": "#6f7a74",
+                        "info-bg": "#E6F1FB",
+                        "on-primary-fixed-variant": "#00513e",
+                        "on-primary-container": "#9aedcf",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-fixed-variant": "#00513a",
+                        "inverse-surface": "#313030",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ffdcbb",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "tertiary-fixed-dim": "#ffb869",
+                        "surface": "#fcf9f8",
+                        "background": "#fcf9f8",
+                        "surface-tint": "#086b53",
+                        "secondary-fixed": "#86f8c9",
+                        "primary-container": "#0f6e56",
+                        "on-error-container": "#93000a",
+                        "info-blue": "#185FA5",
+                        "primary": "#005440",
+                        "on-surface": "#1c1b1b",
+                        "on-secondary-fixed": "#002115",
+                        "on-background": "#1c1b1b",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#eae7e7",
+                        "secondary-fixed-dim": "#68dbae",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#83f5c6",
+                        "mint-bg": "#E1F5EE",
+                        "inverse-primary": "#84d6b9",
+                        "secondary": "#006c4e",
+                        "on-tertiary-fixed": "#2b1700",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#8c5400",
+                        "on-primary-fixed": "#002117",
+                        "primary-fixed-dim": "#84d6b9",
+                        "on-surface-variant": "#3f4944",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-container-low": "#f6f3f2",
+                        "on-secondary-container": "#007151",
+                        "warm-bg": "#FAEEDA"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "base": "4px",
+                        "sm": "12px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px",
+                        "xs": "8px",
+                        "xl": "32px"
+                    },
+                    fontFamily: {
+                        "label-xs": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "body-sm": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "price-label": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"]
+                    },
+                    fontSize: {
+                        "label-xs": ["11px", { lineHeight: "14px", fontWeight: "500" }],
+                        "headline-lg": ["24px", { lineHeight: "32px", fontWeight: "700" }],
+                        "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+                        "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+                        "price-label": ["14px", { lineHeight: "20px", fontWeight: "700" }],
+                        "headline-lg-mobile": ["20px", { lineHeight: "28px", fontWeight: "700" }],
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "headline-md": ["18px", { lineHeight: "24px", fontWeight: "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Pulse Animation for Ring */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(15, 110, 86, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 20px rgba(15, 110, 86, 0); }
+            100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(15, 110, 86, 0); }
+        }
+        .animate-pulse-ring {
+            animation: pulse-ring 2s infinite cubic-bezier(0.66, 0, 0, 1);
+        }
+        
+        /* Slide Up Animation for Bottom Sheet */
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        .animate-slide-up {
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        /* Noise Texture Overlay */
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<!-- Note: Navigation shell suppressed as this is a linear/transactional screen (New Offer Overlay) -->
+<body class="bg-surface text-on-surface min-h-[884px] w-full overflow-hidden flex flex-col relative font-body-md antialiased select-none">
+<!-- Map Background Area -->
+<!-- Using a styled placeholder div to represent the map to avoid large image loading in this demo, but structured to accept a map background -->
+<div class="absolute inset-0 z-0 bg-[#E5E5E5] bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80')] bg-cover bg-center" data-alt="A top-down, slightly angled view of a modern digital map interface displayed on a screen. The map shows city streets and building footprints in a light-mode color scheme with soft greys, white, and subtle green accents matching a corporate yet organic brand identity. The lighting is bright and clean, emphasizing clarity. A faint, glowing route line suggests active navigation." data-location="Istanbul" style="">
+<!-- Overlay to ensure text readability and focus on the bottom sheet -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 backdrop-blur-[2px]"></div>
+<!-- Mock Map Marker (Visual flavor) -->
+<div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center animate-pulse-ring rounded-full">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+</div>
+</div>
+</div>
+<!-- Top Overlay: Timer -->
+<div class="relative z-10 w-full p-margin-mobile flex justify-center pt-10">
+<div class="bg-surface/90 backdrop-blur-md border border-surface-container-high rounded-full px-6 py-3 flex items-center gap-3 shadow-lg">
+<span class="material-symbols-outlined text-primary-container animate-pulse">timer</span>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-subtle-text uppercase tracking-wider">Kalan Süre</span>
+<span class="font-price-label text-price-label text-on-surface tabular-nums" id="countdown-timer">00:45</span>
+</div>
+</div>
+</div>
+<!-- Spacer to push content to bottom -->
+<div class="flex-grow relative z-10"></div>
+<!-- Offer Details Bottom Sheet (Bento Grid / Card Style) -->
+<div class="relative z-20 bg-surface rounded-t-[32px] shadow-[0_-12px_40px_rgba(0,0,0,0.2)] p-margin-mobile pb-8 flex flex-col gap-lg animate-slide-up bg-noise">
+<!-- Drag Handle Indicator -->
+<div class="w-12 h-1.5 bg-surface-dim rounded-full mx-auto -mt-2 mb-2"></div>
+<!-- Header & Earnings Focus -->
+<div class="flex flex-col items-center text-center gap-1">
+<h1 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                Yeni Görev Fırsatı
+            </h1>
+<div class="mt-4 flex flex-col items-center justify-center w-full bg-mint-bg rounded-2xl p-4 border border-secondary-fixed shadow-sm">
+<span class="font-label-xs text-label-xs text-secondary font-bold uppercase tracking-widest mb-1">Tahmini Kazanç</span>
+<div class="flex items-baseline gap-1 text-primary-container">
+<span class="font-headline-lg-mobile text-headline-lg-mobile">₺</span>
+<span class="text-[40px] font-extrabold leading-none tracking-tight">85</span>
+<span class="font-headline-md text-headline-md">,00</span>
+</div>
+</div>
+</div>
+<!-- Quick Stats (Bento Grid) -->
+<div class="grid grid-cols-2 gap-sm">
+<div class="bg-surface-container-lowest border border-surface-container-high rounded-xl p-sm flex items-center gap-3 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-warm-bg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary-container">route</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-subtle-text">Mesafe</span>
+<span class="font-price-label text-price-label text-on-surface">3.8 km</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-surface-container-high rounded-xl p-sm flex items-center gap-3 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-info-bg flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-info-blue">schedule</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-subtle-text">Süre</span>
+<span class="font-price-label text-price-label text-on-surface">~15 dk</span>
+</div>
+</div>
+</div>
+<!-- Route Timeline (Tactile List) -->
+<div class="bg-surface-container-lowest border border-surface-container-high rounded-xl p-md relative shadow-sm">
+<!-- Connecting Line -->
+<div class="absolute left-[31px] top-[44px] bottom-[44px] w-0.5 bg-surface-container-high z-0"></div>
+<!-- Pick-up Point -->
+<div class="flex items-start gap-md relative z-10 mb-6">
+<div class="w-8 h-8 rounded-full bg-surface border-2 border-outline-variant flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-outline" style="font-variation-settings: 'FILL' 1;">storefront</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-subtle-text uppercase tracking-wider mb-0.5">Alınacak Yer</span>
+<span class="font-price-label text-price-label text-on-surface">Kahve Dünyası - Çarşı</span>
+<span class="font-body-sm text-body-sm text-subtle-text line-clamp-1 mt-0.5">Osmanağa Mah. Söğütlüçeşme Cad.</span>
+</div>
+</div>
+<!-- Drop-off Point -->
+<div class="flex items-start gap-md relative z-10">
+<div class="w-8 h-8 rounded-full bg-primary-container border-2 border-primary-container flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-on-primary" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-subtle-text uppercase tracking-wider mb-0.5">Teslim Yeri</span>
+<span class="font-price-label text-price-label text-on-surface">Müşteri (Moda)</span>
+<span class="font-body-sm text-body-sm text-subtle-text line-clamp-1 mt-0.5">Caferağa Mah. Moda Sahil Yolu</span>
+</div>
+</div>
+</div>
+<!-- Tags / Context -->
+<div class="flex flex-wrap gap-2">
+<div class="bg-surface-container-high text-on-surface-variant rounded-full px-3 py-1 flex items-center gap-1.5 border border-surface-dim">
+<span class="material-symbols-outlined text-[14px]">local_mall</span>
+<span class="font-label-xs text-label-xs">Küçük Paket</span>
+</div>
+<div class="bg-surface-container-high text-on-surface-variant rounded-full px-3 py-1 flex items-center gap-1.5 border border-surface-dim">
+<span class="material-symbols-outlined text-[14px]">credit_card</span>
+<span class="font-label-xs text-label-xs">Online Ödendi</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex gap-sm mt-2">
+<!-- Secondary/Decline Action -->
+<button class="flex-1 h-14 rounded-xl border border-outline-variant bg-surface text-on-surface font-headline-md text-headline-md flex items-center justify-center active:bg-surface-container-high transition-colors duration-200">
+                Reddet
+            </button>
+<!-- Primary/Accept Action -->
+<button class="flex-[2] h-14 rounded-xl bg-primary-container text-on-primary font-headline-md text-headline-md flex items-center justify-center gap-2 shadow-[0_4px_14px_rgba(15,110,86,0.3)] active:scale-[0.98] active:shadow-none transition-all duration-200 relative overflow-hidden group" id="accept-btn">
+<!-- Swipe highlight effect -->
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-active:translate-x-full transition-transform duration-700 ease-out"></div>
+                Kabul Et
+                <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Micro-interaction Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Timer Logic
+            const timerElement = document.getElementById('countdown-timer');
+            let timeLeft = 45; // 45 seconds to accept
+
+            const countdownInterval = setInterval(() => {
+                timeLeft--;
+                if (timeLeft >= 0) {
+                    const seconds = timeLeft < 10 ? '0' + timeLeft : timeLeft;
+                    timerElement.textContent = `00:${seconds}`;
+                    
+                    // Add urgency color when low on time
+                    if (timeLeft <= 10) {
+                        timerElement.classList.remove('text-on-surface');
+                        timerElement.classList.add('text-error');
+                        timerElement.parentElement.parentElement.classList.add('border-error', 'bg-error-container/20');
+                    }
+                } else {
+                    clearInterval(countdownInterval);
+                    timerElement.textContent = "00:00";
+                    // In a real app, this would automatically close or decline the offer
+                }
+            }, 1000);
+
+            // Button interaction feedback
+            const acceptBtn = document.getElementById('accept-btn');
+            acceptBtn.addEventListener('click', function() {
+                clearInterval(countdownInterval);
+                this.innerHTML = '<span class="material-symbols-outlined animate-spin text-[24px]">progress_activity</span>';
+                this.classList.add('opacity-90');
+                
+                // Simulate network request
+                setTimeout(() => {
+                    this.innerHTML = '<span class="material-symbols-outlined text-[24px]">check</span> Kabul Edildi';
+                    this.classList.remove('bg-primary-container');
+                    this.classList.add('bg-secondary');
+                }, 800);
+            });
+        });
+    </script>
+</body></html>

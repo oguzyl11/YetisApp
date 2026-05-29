@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kurye Teslimat Onayı</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#ffb869",
+                      "outline-variant": "#bec9c3",
+                      "surface-container-lowest": "#ffffff",
+                      "outline": "#6f7a74",
+                      "primary-fixed-dim": "#84d6b9",
+                      "surface": "#fcf9f8",
+                      "on-error": "#ffffff",
+                      "mint-bg": "#E1F5EE",
+                      "on-surface-variant": "#3f4944",
+                      "inverse-primary": "#84d6b9",
+                      "surface-tint": "#086b53",
+                      "on-tertiary-fixed-variant": "#673d00",
+                      "on-tertiary-fixed": "#2b1700",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-container": "#007151",
+                      "secondary-fixed": "#86f8c9",
+                      "primary-container": "#0f6e56",
+                      "surface-bright": "#fcf9f8",
+                      "secondary-fixed-dim": "#68dbae",
+                      "error": "#ba1a1a",
+                      "tertiary-container": "#8c5400",
+                      "surface-container": "#f0eded",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed": "#002115",
+                      "on-background": "#1c1b1b",
+                      "surface-dim": "#dcd9d9",
+                      "subtle-text": "#6B6B6B",
+                      "error-container": "#ffdad6",
+                      "secondary": "#006c4e",
+                      "tertiary-fixed": "#ffdcbb",
+                      "surface-container-highest": "#e5e2e1",
+                      "secondary-container": "#83f5c6",
+                      "on-secondary-fixed-variant": "#00513a",
+                      "tertiary": "#6b3f00",
+                      "on-surface": "#1c1b1b",
+                      "inverse-surface": "#313030",
+                      "info-blue": "#185FA5",
+                      "warm-bg": "#FAEEDA",
+                      "info-bg": "#E6F1FB",
+                      "on-primary-fixed-variant": "#00513e",
+                      "surface-container-low": "#f6f3f2",
+                      "on-error-container": "#93000a",
+                      "on-primary": "#ffffff",
+                      "on-primary-container": "#9aedcf",
+                      "inverse-on-surface": "#f3f0ef",
+                      "on-tertiary-container": "#ffd5ac",
+                      "primary": "#005440",
+                      "surface-variant": "#e5e2e1",
+                      "surface-container-high": "#eae7e7",
+                      "background": "#fcf9f8",
+                      "on-primary-fixed": "#002117",
+                      "primary-fixed": "#a0f3d4"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "margin-desktop": "32px",
+                      "base": "4px",
+                      "xl": "32px",
+                      "md": "16px",
+                      "sm": "12px",
+                      "gutter": "16px",
+                      "xs": "8px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "price-label": [
+                              "Inter"
+                      ],
+                      "label-xs": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "price-label": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-xs": [
+                              "11px",
+                              {
+                                      "lineHeight": "14px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md selection:bg-tertiary-container selection:text-on-tertiary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface shadow-sm">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full">
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 active:opacity-80 p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-md md:text-headline-md text-primary font-bold">Yetiş İş Ortağı</h1>
+</div>
+<button class="text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 active:opacity-80 p-2 rounded-full flex items-center justify-center relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-[80px] pb-[100px] px-margin-mobile md:px-margin-desktop md:ml-72 flex flex-col gap-lg max-w-2xl mx-auto w-full">
+<!-- Order Header Info -->
+<section class="flex flex-col gap-sm mt-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Sipariş #48291</h2>
+<p class="font-body-sm text-body-sm text-subtle-text">Teslimat Adresi: Mimar Sinan Mah. Karanfil Sok. No:12 D:4 Ataşehir/İstanbul</p>
+</div>
+<div class="bg-warm-bg text-[#BA7517] px-3 py-1 rounded-full font-label-xs text-label-xs flex items-center gap-1 border border-[#BA7517]/20">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+                     Kurye
+                </div>
+</div>
+</section>
+<!-- Package Summary Card -->
+<section class="bg-surface-container-lowest rounded-xl p-md shadow-[0_2px_12px_rgba(0,0,0,0.04)] flex flex-col gap-md border border-surface-container-highest">
+<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-xs">
+<span class="material-symbols-outlined text-outline">inventory_2</span> Paket İçeriği
+            </h3>
+<div class="flex flex-col gap-sm">
+<!-- Item 1 -->
+<div class="flex items-start justify-between border-b border-surface-variant pb-sm last:border-0 last:pb-0">
+<div class="flex items-start gap-md">
+<div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden shrink-0">
+<img alt="Organik Domates" class="w-full h-full object-cover" data-alt="A close-up shot of fresh, vibrant red organic tomatoes resting in a rustic wooden crate. The lighting is soft and natural, suggesting an early morning market setting. The background is slightly blurred, emphasizing the texture and color of the tomatoes. Modern, corporate aesthetic with organic undertones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNT6yObbeANcBu8niPW6suA3jsv883xp_q1je8RxnCturirycJNu7Bf3_SXvw0duJ-jHwbjn4vQLoCIhiihlP7gNfm3Gm4zf-jonjFdPh63FSiHXvEoEPBKvNA8YXKrBQV6OVtfokjVVHyrPt0L2p5Ho1oeXe2WV7dNwennmmrNGHbTgwrX4qfvkJb0gdcrt3fDw3hIIGXDv52gnFrZU0DFk5LqyklGDgYqt2oMpR79b9lU9PRkrP1VFo-vnr7IWrig9vJfOynwjot"/>
+</div>
+<div>
+<p class="font-body-md text-body-md font-medium text-on-surface">Organik Salkım Domates</p>
+<p class="font-body-sm text-body-sm text-subtle-text">1 kg</p>
+</div>
+</div>
+<span class="font-price-label text-price-label text-primary">₺45.00</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start justify-between pb-sm">
+<div class="flex items-start gap-md">
+<div class="w-16 h-16 rounded-lg bg-surface-container overflow-hidden shrink-0">
+<img alt="Süt" class="w-full h-full object-cover" data-alt="A clean, minimalist composition featuring a glass bottle of fresh milk next to a small wooden bowl of almonds on a light marble surface. The lighting is bright and high-key, creating a fresh and healthy vibe. Soft shadows add depth. Modern, corporate aesthetic with a focus on natural ingredients." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8Z_RB3_D-QTApWwLHV3LMxD3zEjuGkkAxZegE35E1kJPuwc64gHf1CMmPoLNaKAlNraPD9t0XLpOzDJcM07fivmN34d_Q-GnWfXyntQi5fBdsp1zXMxrYDuTvW2enxALSVweTkQBaoWsjJAQvZOf8fDapjT9LiKsvODUADLH_rw4w7XsK0mb5vnvPDxsaAVkbvosbc6StYwbehXVyJCm_gaaLs8DFF8QtvxjFEPyoMLGtDVAt1HUvwonpeCq62AN46GcT_fAHJGTF"/>
+</div>
+<div>
+<p class="font-body-md text-body-md font-medium text-on-surface">Günlük Süt - Tam Yağlı</p>
+<p class="font-body-sm text-body-sm text-subtle-text">1 L</p>
+</div>
+</div>
+<span class="font-price-label text-price-label text-primary">₺32.50</span>
+</div>
+</div>
+<div class="flex justify-between items-center pt-md border-t border-surface-variant mt-sm">
+<span class="font-body-lg text-body-lg font-medium text-on-surface">Toplam</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">₺77.50</span>
+</div>
+</section>
+<!-- Delivery Code Input Area -->
+<section class="bg-surface-container-low rounded-xl p-lg shadow-sm flex flex-col items-center justify-center gap-md relative overflow-hidden border border-tertiary-fixed-dim/30">
+<!-- Decorative Accent -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-tertiary-fixed-dim/10 rounded-bl-full blur-2xl pointer-events-none"></div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-center">Teslimat Kodu</h3>
+<p class="font-body-sm text-body-sm text-subtle-text text-center max-w-[280px]">Müşterinin telefonundaki 6 haneli kodu girin veya QR kodu okutun.</p>
+<div class="flex gap-2 w-full max-w-[320px] my-sm justify-center">
+<input class="w-12 h-14 text-center font-headline-lg text-headline-lg border-surface-variant rounded-lg bg-surface-container-lowest focus:ring-tertiary-container focus:border-tertiary-container shadow-sm transition-all" maxlength="1" type="text" value="4"/>
+<input class="w-12 h-14 text-center font-headline-lg text-headline-lg border-surface-variant rounded-lg bg-surface-container-lowest focus:ring-tertiary-container focus:border-tertiary-container shadow-sm transition-all" maxlength="1" type="text" value="8"/>
+<input class="w-12 h-14 text-center font-headline-lg text-headline-lg border-surface-variant rounded-lg bg-surface-container-lowest focus:ring-tertiary-container focus:border-tertiary-container shadow-sm transition-all" maxlength="1" type="text" value="2"/>
+<input class="w-12 h-14 text-center font-headline-lg text-headline-lg border-surface-variant rounded-lg bg-surface-container-lowest focus:ring-tertiary-container focus:border-tertiary-container shadow-sm transition-all" maxlength="1" type="text" value=""/>
+<input class="w-12 h-14 text-center font-headline-lg text-headline-lg border-surface-variant rounded-lg bg-surface-container-lowest focus:ring-tertiary-container focus:border-tertiary-container shadow-sm transition-all" maxlength="1" type="text" value=""/>
+<input class="w-12 h-14 text-center font-headline-lg text-headline-lg border-surface-variant rounded-lg bg-surface-container-lowest focus:ring-tertiary-container focus:border-tertiary-container shadow-sm transition-all" maxlength="1" type="text" value=""/>
+</div>
+<div class="flex items-center gap-4 w-full max-w-[320px]">
+<div class="h-[1px] bg-outline-variant flex-grow"></div>
+<span class="font-label-xs text-label-xs text-outline font-medium">VEYA</span>
+<div class="h-[1px] bg-outline-variant flex-grow"></div>
+</div>
+<button class="w-full max-w-[320px] h-12 flex items-center justify-center gap-xs rounded-full border border-tertiary-container text-tertiary-container bg-warm-bg/50 hover:bg-warm-bg transition-colors font-body-md text-body-md font-medium">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+                QR Okut
+            </button>
+</section>
+</main>
+<!-- Bottom Action Bar (Contextual FAB equivalent for transaction) -->
+<div class="fixed bottom-0 left-0 w-full bg-surface shadow-[0_-4px_12px_rgba(0,0,0,0.05)] p-margin-mobile md:p-margin-desktop md:pl-[calc(32px+288px)] z-40 lg:hidden">
+<button class="w-full h-12 bg-primary-container text-on-primary flex items-center justify-center rounded-full font-body-lg text-body-lg font-medium shadow-md hover:bg-primary transition-colors active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed">
+            Teslim Edildi
+        </button>
+</div>
+<!-- Desktop Side Navigation (Hidden on mobile) -->
+<nav class="hidden lg:flex flex-col fixed left-0 top-0 h-full z-40 bg-surface border-r border-surface-container-highest shadow-md h-full w-72 rounded-r-xl pt-20">
+<!-- Profile Header -->
+<div class="px-6 py-4 flex items-center gap-4 border-b border-surface-container-highest mb-4">
+<div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden shrink-0">
+<img alt="Business Logo" class="w-full h-full object-cover" data-alt="A professional headshot of a mature businessman with a confident smile, wearing a dark suit and light shirt. The background is a brightly lit, modern office environment with subtle reflections. The lighting is flattering and corporate, conveying trust and reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG6_tGRua5RodvdlQw9e_WtBnqPu-EqZxStN-owT37rUcuS0iFs2slwzUtAFFWkpf1isOncMwDf2I6VN_pceVmk5sUkrs6ZvD-2qsOdjc1APC8OEmJ0nWORUiTLa6JMpNOc9qRDN2h3UyiAKw2b6rx_MBf7wUbqlbDbtBDsCWBIi_bhpMZEN5tFnfDo1EQbmtIzLd2CBGW6_m9icM4YR0Usg6B_dAOKWhzIltiTG31YpHmhmF_W4g9DNh5rQLEe-0X9K8r4S3sgnJW"/>
+</div>
+<div>
+<h2 class="font-body-md text-body-md text-on-surface font-semibold">Mağaza Paneli</h2>
+<p class="font-label-xs text-label-xs text-secondary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary inline-block"></span> Aktif/Çevrimiçi
+                 </p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high rounded-full transition-all duration-300 ease-in-out font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">assignment</span>
+                Siparişler
+            </a>
+<a class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high rounded-full transition-all duration-300 ease-in-out font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+                Ürünlerim
+            </a>
+<a class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high rounded-full transition-all duration-300 ease-in-out font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">payments</span>
+                Kazançlar
+            </a>
+<!-- Active State for Teslimatlar (Deliveries) based on intent -->
+<a class="bg-secondary-container text-on-secondary-container rounded-full mx-2 px-4 py-3 flex items-center gap-3 transition-all duration-300 ease-in-out font-body-md text-body-md font-medium" href="#">
+<span class="material-symbols-outlined fill">local_shipping</span>
+                Teslimatlar
+            </a>
+<a class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high rounded-full transition-all duration-300 ease-in-out font-body-md text-body-md" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+                Profil
+            </a>
+</div>
+</nav>
+<!-- Desktop Action Bar (Visible only on desktop) -->
+<div class="hidden lg:flex fixed bottom-8 right-8 z-40">
+<button class="px-8 h-12 bg-primary-container text-on-primary flex items-center justify-center rounded-full font-body-lg text-body-lg font-medium shadow-lg hover:bg-primary transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-xl">
+<span class="material-symbols-outlined mr-2">check_circle</span>
+            Teslim Edildi İşaretle
+        </button>
+</div>
+<script>
+        // Auto-focus logic for the code inputs
+        const inputs = document.querySelectorAll('input[type="text"][maxlength="1"]');
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', () => {
+                if (input.value.length === 1 && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && input.value.length === 0 && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+    </script>
+</body></html>
