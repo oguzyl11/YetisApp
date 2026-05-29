@@ -33,6 +33,7 @@ dependencies:
 
   # Yetiş projesi için profesyonel yardımcı paketler:
   http: ^1.2.0           # Node.js backend API'miz ile haberleşmek için
+  flutter_animate: ^4.5.0 # Uygulama genelinde akıcı animasyonlar için
   provider: ^6.1.1    # Uygulama genelinde durum yönetimi için basit ve etkili bir çözüm
   google_maps_flutter: ^2.5.3 # Canlı kurye takibi harita kütüphanesi
   qr_flutter: ^4.1.0     # Dükkan teslimatları için dinamik QR kod bilet oluşturucu
