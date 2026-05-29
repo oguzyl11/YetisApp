@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Yetiş - Giriş Yap</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-error-container": "#93000a",
+                        "primary": "#005440",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "on-tertiary-fixed": "#2b1700",
+                        "on-primary": "#ffffff",
+                        "info-bg": "#E6F1FB",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-dim": "#dcd9d9",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "outline": "#6f7a74",
+                        "on-primary-container": "#9aedcf",
+                        "on-secondary-container": "#007151",
+                        "tertiary": "#6b3f00",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb869",
+                        "secondary-fixed": "#86f8c9",
+                        "inverse-surface": "#313030",
+                        "primary-fixed-dim": "#84d6b9",
+                        "on-tertiary-container": "#ffd5ac",
+                        "surface-container-high": "#eae7e7",
+                        "tertiary-container": "#8c5400",
+                        "on-primary-fixed-variant": "#00513e",
+                        "surface-container": "#f0eded",
+                        "mint-bg": "#E1F5EE",
+                        "outline-variant": "#bec9c3",
+                        "on-surface-variant": "#3f4944",
+                        "on-secondary-fixed": "#002115",
+                        "info-blue": "#185FA5",
+                        "secondary": "#006c4e",
+                        "on-background": "#1c1b1b",
+                        "primary-fixed": "#a0f3d4",
+                        "on-secondary-fixed-variant": "#00513a",
+                        "tertiary-fixed": "#ffdcbb",
+                        "surface-bright": "#fcf9f8",
+                        "subtle-text": "#6B6B6B",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-tint": "#086b53",
+                        "surface": "#fcf9f8",
+                        "secondary-container": "#83f5c6",
+                        "secondary-fixed-dim": "#68dbae",
+                        "warm-bg": "#FAEEDA",
+                        "background": "#fcf9f8",
+                        "on-surface": "#1c1b1b",
+                        "on-primary-fixed": "#002117",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#0f6e56",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-variant": "#e5e2e1",
+                        "inverse-primary": "#84d6b9"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "md": "16px",
+                        "lg": "24px",
+                        "margin-desktop": "32px",
+                        "xl": "32px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "sm": "12px"
+                    },
+                    fontFamily: {
+                        "label-xs": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "price-label": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    fontSize: {
+                        "label-xs": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["20px", { "lineHeight": "28px", "fontWeight": "800" }],
+                        "price-label": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "800" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Hide scrollbar for clean UI */
+        ::-webkit-scrollbar { display: none; }
+        * { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-mint-bg min-h-screen flex items-center justify-center p-margin-mobile antialiased">
+<!-- Main Login Container -->
+<main class="w-full max-w-md flex flex-col items-center">
+<!-- Illustration -->
+<div class="w-full max-w-[240px] aspect-square mb-lg relative">
+<!-- Decorative soft glow behind illustration -->
+<div class="absolute inset-0 bg-white/40 rounded-full blur-3xl"></div>
+<img alt="Grocery bag illustration" class="w-full h-full object-cover rounded-full shadow-sm relative z-10 border-4 border-white/50" data-alt="A high-quality, modern stylized 3D or vector illustration of a fresh brown paper grocery bag filled to the brim with vibrant, healthy vegetables and fruits like tomatoes, leafy greens, and carrots. The scene includes subtle eco-friendly delivery motifs, such as a tiny green leaf or a stylized bicycle icon. The art style is clean, corporate yet highly tactile and organic, utilizing a color palette dominated by soft mint greens, deep primary greens, and warm organic hues. The lighting is soft, bright, and studio-quality, casting gentle diffused shadows that create a welcoming, reliable, and environmentally conscious mood perfectly suited for a sustainable food rescue application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC1J8uC71_PxzzWIs9Wi-vR6JBl0S13740F1zKduqAUIhQPvDmkij1I9mxJXKO95ikZbtz5MHYltJMc_49l2QNgaGtWcWf3CB2jAYt5YUuLEqf0fcY_iBoNPZFBMJJp9fqeRQrmzW8CQDCGoQZ74Kr1JbvPkMut_5PoFpyKua7exAZl7z12s6aJHMKHw9YMoPELwSBOnpGrIx69c8r54yGYqKc6IBClBJXWxX2ZFFOCw1YjEWHwflnpIg1ZI42-X5igkVvh4_bn5aD"/>
+</div>
+<!-- Brand & Slogan -->
+<div class="text-center mb-xl w-full">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight mb-xs">
+                Yetiş
+            </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Gıda israfını önlemeye hazır mısın?
+            </p>
+</div>
+<!-- Login Form -->
+<form class="w-full flex flex-col gap-md" onsubmit="event.preventDefault();">
+<!-- Phone Input Group -->
+<div class="flex flex-col gap-base">
+<label class="font-body-sm text-body-sm text-on-surface-variant ml-base" for="phone">Telefon Numarası</label>
+<div class="flex bg-surface rounded-lg border border-outline-variant focus-within:border-primary-container focus-within:ring-1 focus-within:ring-primary-container transition-all overflow-hidden h-[48px] shadow-sm">
+<!-- Country Code -->
+<div class="flex items-center justify-center px-sm bg-surface-container-low border-r border-outline-variant gap-xs">
+<img alt="TR Flag" class="w-5 h-auto rounded-sm opacity-90" data-alt="A small, crisp rectangular icon of the national flag of Turkey, featuring a white crescent moon and a five-pointed star centered on a solid crimson red background. The image is flat, well-lit, and serves as a simple user interface element to denote the country code selection in a phone number input field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDilwT0FJfeBr9_JNWzxFLCJjzkJIsyCvWQYsJr1VBCXcSSOfVCDy2FmvLjSwvVSm-baFTnJfwPjN-rvY_eQZltWVkcdAYEnWDWTH1fhYBY4P5SjQnj4Za1VTJstfRCtQUCcGUTCC-b1wpyv93_3JL5u0NKyV_SG6FSNNkvkeZCF8dQ7fkaFJg1x7RnH1YGhG0stARD1JKckDVGDO68Vgz_pXmDmBaBVxgNqHUkVth2e-h4OrEhMMarH87L7cJPIsisLpi4HTGRcDaf"/>
+<span class="font-body-md text-body-md text-on-surface font-medium">+90</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</div>
+<!-- Number Input -->
+<input autocomplete="tel-national" class="flex-1 px-sm bg-transparent border-none focus:ring-0 font-body-md text-body-md text-on-surface outline-none placeholder:text-outline-variant" id="phone" placeholder="5XX XXX XX XX" type="tel"/>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full h-[48px] mt-xs bg-primary-container text-on-primary font-body-md text-body-md font-semibold rounded-lg shadow-[0_4px_12px_rgba(15,110,86,0.2)] hover:bg-primary hover:shadow-[0_6px_16px_rgba(15,110,86,0.3)] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-xs" type="submit">
+                Giriş Yap
+                <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</button>
+</form>
+<!-- Footer Link -->
+<div class="mt-lg text-center font-body-sm text-body-sm text-on-surface-variant flex items-center justify-center gap-1">
+            Hesabın yok mu? 
+            <a class="text-primary font-semibold hover:text-secondary transition-colors underline-offset-4 hover:underline" href="#">Hemen Kaydol</a>
+</div>
+</main>
+</body></html>

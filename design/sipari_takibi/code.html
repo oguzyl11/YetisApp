@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Canlı Sipariş Takip</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#007151",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "primary": "#005440",
+                        "tertiary": "#6b3f00",
+                        "on-secondary-fixed-variant": "#00513a",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1c1b1b",
+                        "info-blue": "#185FA5",
+                        "on-primary-fixed-variant": "#00513e",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#006c4e",
+                        "outline": "#6f7a74",
+                        "tertiary-fixed-dim": "#ffb869",
+                        "secondary-fixed-dim": "#68dbae",
+                        "on-tertiary-fixed": "#2b1700",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#ffd5ac",
+                        "surface-container-low": "#f6f3f2",
+                        "mint-bg": "#E1F5EE",
+                        "on-secondary-fixed": "#002115",
+                        "surface-container-high": "#eae7e7",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-primary-container": "#9aedcf",
+                        "secondary-container": "#83f5c6",
+                        "primary-fixed-dim": "#84d6b9",
+                        "on-background": "#1c1b1b",
+                        "surface-tint": "#086b53",
+                        "inverse-surface": "#313030",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#0f6e56",
+                        "tertiary-fixed": "#ffdcbb",
+                        "surface-container": "#f0eded",
+                        "surface-container-lowest": "#ffffff",
+                        "info-bg": "#E6F1FB",
+                        "tertiary-container": "#8c5400",
+                        "on-primary-fixed": "#002117",
+                        "warm-bg": "#FAEEDA",
+                        "error": "#ba1a1a",
+                        "surface": "#fcf9f8",
+                        "inverse-primary": "#84d6b9",
+                        "surface-variant": "#e5e2e1",
+                        "primary-fixed": "#a0f3d4",
+                        "background": "#fcf9f8",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "subtle-text": "#6B6B6B",
+                        "secondary-fixed": "#86f8c9",
+                        "on-surface-variant": "#3f4944",
+                        "inverse-on-surface": "#f3f0ef",
+                        "outline-variant": "#bec9c3",
+                        "surface-bright": "#fcf9f8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "xs": "8px",
+                        "xl": "32px",
+                        "sm": "12px",
+                        "margin-desktop": "32px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "price-label": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-xs": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "price-label": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-xs": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen">
+<!-- Task-Focused Header (Navigation Shell Suppressed) -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md px-margin-mobile py-sm flex items-center shadow-sm">
+<button class="p-xs text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="ml-sm font-headline-md text-headline-md text-on-surface flex-1">Sipariş Takibi</h1>
+<button class="p-xs text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="refresh">refresh</span>
+</button>
+</header>
+<!-- Map Area -->
+<div class="relative w-full h-[397px] mt-16 bg-surface-container-high overflow-hidden">
+<img alt="Harita" class="w-full h-full object-cover opacity-90" data-alt="A clean, highly detailed top-down digital map view of a modern urban city center. The map features a light-mode aesthetic with pristine white roads, soft cool-gray building blocks, and subtle green park areas. The lighting is bright and even, creating a professional, corporate, yet approachable mood suitable for a premium delivery tracking interface. There are no distracting elements, just a clear, functional urban layout." data-location="Istanbul" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFZZScAgy47md5raQKC7ukKBagXz2r6a0N_E6kEGw5eZf9Vd418-DXP7_eHYcHU0WwBocfYOd_qc2lJ65dV00AYuDltSZ-ma45_97folWo_636Sux8EQp8oCaP6iHIwUWVcZqFWB8uwu-vhW1DlyopVjUn3YZfkFbdwiY7NecSToX4nn8twuJWm4dvjR3dqfxjxNoM6pB6Vee4SPfrohvSIIlvoOaLA5mGk-3OeKOqkWzhF72wg0lGieG7IRW6GQSgtGdSnsV8ZRCO"/>
+<!-- Live Courier Pin -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center drop-shadow-xl animate-[bounce_2s_infinite]">
+<div class="bg-surface px-sm py-xs rounded-full shadow-md border border-outline-variant/30 flex items-center gap-xs mb-1">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="two_wheeler" data-weight="fill" style="font-variation-settings: 'FILL' 1;">two_wheeler</span>
+<span class="font-label-xs text-label-xs text-on-surface font-bold">2 dk kaldı</span>
+</div>
+<!-- Pin Pointer -->
+<div class="w-3 h-3 bg-surface rotate-45 -mt-2 border-r border-b border-outline-variant/30"></div>
+</div>
+<!-- Destination Pin -->
+<div class="absolute bottom-1/4 right-1/4 text-primary drop-shadow-md">
+<span class="material-symbols-outlined text-[32px]" data-icon="location_on" data-weight="fill" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+<!-- Bottom Sheet Content Canvas -->
+<main class="flex-1 bg-surface z-10 relative -mt-lg rounded-t-[24px] shadow-[0_-8px_24px_0_rgba(0,0,0,0.06)] px-margin-mobile pt-lg pb-xl flex flex-col">
+<!-- Drag Handle Indicator -->
+<div class="w-12 h-1.5 bg-outline-variant/50 rounded-full mx-auto mb-lg"></div>
+<!-- Courier Info Card -->
+<div class="flex items-center justify-between p-sm border border-surface-variant rounded-xl bg-surface-container-lowest shadow-sm mb-lg">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 rounded-full bg-mint-bg flex items-center justify-center border border-primary/10">
+<span class="material-symbols-outlined text-primary text-[28px]" data-icon="person">person</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Ahmet Yılmaz</h2>
+<p class="font-body-sm text-body-sm text-subtle-text mt-0.5">34 ABC 123 • Motosiklet</p>
+</div>
+</div>
+<div class="bg-warm-bg px-xs py-1 rounded text-tertiary-container font-label-xs text-label-xs font-bold tracking-wide">
+                KURYE
+            </div>
+</div>
+<!-- Vertical Timeline Status -->
+<div class="flex-1 px-xs mt-xs">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-md">Sipariş Durumu</h3>
+<div class="relative pl-6 border-l-2 border-surface-variant ml-2 space-y-lg pb-sm">
+<!-- Status 1: Done -->
+<div class="relative">
+<div class="absolute -left-[35px] top-0.5 bg-primary rounded-full w-5 h-5 flex items-center justify-center border-2 border-surface">
+<span class="material-symbols-outlined text-[12px] text-on-primary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="-mt-1">
+<p class="font-headline-md text-headline-md text-on-surface">Sipariş Alındı</p>
+<p class="font-body-sm text-body-sm text-subtle-text mt-0.5">14:05</p>
+</div>
+</div>
+<!-- Status 2: Done -->
+<div class="relative">
+<div class="absolute -left-[35px] top-0.5 bg-primary rounded-full w-5 h-5 flex items-center justify-center border-2 border-surface">
+<span class="material-symbols-outlined text-[12px] text-on-primary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="-mt-1">
+<p class="font-headline-md text-headline-md text-on-surface">Hazırlanıyor</p>
+<p class="font-body-sm text-body-sm text-subtle-text mt-0.5">14:12</p>
+</div>
+</div>
+<!-- Status 3: Active (Warm Orange / Tertiary) -->
+<div class="relative">
+<!-- Pulsating Dot -->
+<div class="absolute -left-[35px] top-0.5 w-5 h-5">
+<div class="absolute inset-0 bg-tertiary-container rounded-full animate-ping opacity-60"></div>
+<div class="absolute inset-[2px] bg-tertiary-container rounded-full border-2 border-surface z-10"></div>
+</div>
+<div class="-mt-1">
+<p class="font-headline-md text-headline-md text-tertiary-container">Yolda</p>
+<p class="font-body-sm text-body-sm text-tertiary-container/80 mt-0.5 font-medium">Tahmini varış: 14:45</p>
+</div>
+</div>
+<!-- Status 4: Pending -->
+<div class="relative">
+<div class="absolute -left-[35px] top-0.5 bg-surface-variant rounded-full w-5 h-5 border-2 border-surface z-10"></div>
+<div class="-mt-1 opacity-50">
+<p class="font-headline-md text-headline-md text-on-surface-variant">Teslim Edildi</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-sm mt-xl">
+<!-- Primary Action -->
+<button class="w-full bg-primary-container hover:bg-primary-container/90 text-on-primary font-headline-md text-headline-md h-[48px] rounded-lg flex items-center justify-center gap-xs shadow-md active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+                Kuryeyi Ara
+            </button>
+<!-- Secondary Action -->
+<button class="w-full border border-primary bg-mint-bg hover:bg-mint-bg/80 text-primary font-headline-md text-headline-md h-[48px] rounded-lg flex items-center justify-center gap-xs shadow-sm active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+                Yardım
+            </button>
+</div>
+</main>
+</body></html>

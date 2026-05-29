@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Yetiş İş Ortağı - Ürün Yönetimi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#ffb869",
+                        "outline-variant": "#bec9c3",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#6f7a74",
+                        "primary-fixed-dim": "#84d6b9",
+                        "surface": "#fcf9f8",
+                        "on-error": "#ffffff",
+                        "mint-bg": "#E1F5EE",
+                        "on-surface-variant": "#3f4944",
+                        "inverse-primary": "#84d6b9",
+                        "surface-tint": "#086b53",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "on-tertiary-fixed": "#2b1700",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#007151",
+                        "secondary-fixed": "#86f8c9",
+                        "primary-container": "#0f6e56",
+                        "surface-bright": "#fcf9f8",
+                        "secondary-fixed-dim": "#68dbae",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#8c5400",
+                        "surface-container": "#f0eded",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#002115",
+                        "on-background": "#1c1b1b",
+                        "surface-dim": "#dcd9d9",
+                        "subtle-text": "#6B6B6B",
+                        "error-container": "#ffdad6",
+                        "secondary": "#006c4e",
+                        "tertiary-fixed": "#ffdcbb",
+                        "surface-container-highest": "#e5e2e1",
+                        "secondary-container": "#83f5c6",
+                        "on-secondary-fixed-variant": "#00513a",
+                        "tertiary": "#6b3f00",
+                        "on-surface": "#1c1b1b",
+                        "inverse-surface": "#313030",
+                        "info-blue": "#185FA5",
+                        "warm-bg": "#FAEEDA",
+                        "info-bg": "#E6F1FB",
+                        "on-primary-fixed-variant": "#00513e",
+                        "surface-container-low": "#f6f3f2",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#9aedcf",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-tertiary-container": "#ffd5ac",
+                        "primary": "#005440",
+                        "surface-variant": "#e5e2e1",
+                        "surface-container-high": "#eae7e7",
+                        "background": "#fcf9f8",
+                        "on-primary-fixed": "#002117",
+                        "primary-fixed": "#a0f3d4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px",
+                        "base": "4px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "sm": "12px",
+                        "gutter": "16px",
+                        "xs": "8px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "price-label": ["Inter"],
+                        "label-xs": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "price-label": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+                        "label-xs": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["20px", { "lineHeight": "28px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom Switch Styles */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #0F6E56;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #0F6E56;
+        }
+        .toggle-checkbox {
+            right: 0;
+            z-index: 1;
+            border-color: #e5e2e1;
+            transition: all 0.3s;
+        }
+        .toggle-label {
+            width: 44px;
+            height: 24px;
+            background-color: #e5e2e1;
+            border-radius: 9999px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .toggle-label:after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen pb-24 md:pb-0 md:pl-72 pt-16">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface shadow-sm transition-colors duration-200 active:opacity-80 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 md:hidden">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="Partner Profile" class="w-full h-full object-cover" data-alt="A close-up, high-quality portrait of a friendly artisan baker in a modern bakery environment, well-lit with soft natural light, conveying a professional and approachable corporate identity within a sustainable and community-focused brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0r15cV02Luf2whJoVOeRyNTsWpXGbIZX48SD3Ozn7ntliAu6gq4j-2woV2iTiTIy-oRhC_uDiFYBgGhOalznIjNj9EFIdFiIo84OjEuiGJul9mc3TcGjdRwj8Q0lMWrwIpWuzaAUXXsvYFS3aWaKo3lN79Iyzo38S-uXKpSapfsuuMXAMlrxa_Kp6OInGfhRkRiSOCXOd5BfNUqPwfWvCpELg90U5VRQCtujBUYrZ_vokQSLBtCcP951iuNoqn7-PHyR1LhrqFtFn"/>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">Yetiş İş Ortağı</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- NavigationDrawer (Desktop) -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full z-40 bg-surface border-r border-surface-container-highest shadow-md h-full w-72 rounded-r-xl transition-all duration-300 ease-in-out">
+<div class="p-6 border-b border-surface-container-highest">
+<div class="flex items-center gap-4 mb-2">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high overflow-hidden shadow-sm">
+<img alt="Business Logo" class="w-full h-full object-cover" data-alt="A close-up, high-quality portrait of a friendly artisan baker in a modern bakery environment, well-lit with soft natural light, conveying a professional and approachable corporate identity within a sustainable and community-focused brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw_jBpreLFUMMt2e0NavRGq3Elkf4lABdod6S7Fhpp2wiZ96Q4q6kNe0jvpQqp7P4dsVbzel5ZbZmrbWxU2PwfK5DK2XQCYZFqM3HfnSbsYXrgGCSZ-YUIBMC2nTdEeBjO5vdIoaDFuS-IomHKrUiePZb0Ni0Xtb1J85PNmKDoM18V8GQj_opTowr6nmQ541JupC5QVWIzrcpq0P97wLQ3foxaoy_CGYlB3heX9ELY7rm5QtHgg7-zXaCawO9YtDW2OSTv1AOpMw9S"/>
+</div>
+<div>
+<h2 class="text-primary font-bold font-headline-md text-headline-md">Mağaza Paneli</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Aktif/Çevrimiçi</p>
+</div>
+</div>
+</div>
+<ul class="flex-1 py-4 overflow-y-auto space-y-1">
+<li>
+<a class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high rounded-full transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-body-md text-body-md">Siparişler</span>
+</a>
+</li>
+<li>
+<a class="bg-secondary-container text-on-secondary-container rounded-full mx-2 px-4 py-3 flex items-center gap-3 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined fill" data-icon="inventory_2" data-weight="fill">inventory_2</span>
+<span class="font-body-md text-body-md font-medium">Ürünlerim</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high rounded-full transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-body-md text-body-md">Kazançlar</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high rounded-full transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-body-md text-body-md">Teslimatlar</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant mx-2 px-4 py-3 flex items-center gap-3 hover:bg-surface-container-high rounded-full transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="font-body-md text-body-md">Profil</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Canvas -->
+<main class="p-margin-mobile md:p-margin-desktop max-w-7xl mx-auto space-y-lg md:pt-margin-desktop">
+<!-- Header & Actions -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface font-bold tracking-tight">Ürün Yönetimi</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Mağazanızdaki ürünleri görüntüleyin ve yönetin.</p>
+</div>
+<button class="w-full sm:w-auto bg-primary-container text-on-primary h-12 px-6 rounded-xl font-body-md text-body-md font-medium shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2 active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                Yeni Ürün Ekle
+            </button>
+</div>
+<!-- Search & Filter Bar -->
+<div class="bg-surface rounded-xl border border-surface-container p-2 flex flex-col sm:flex-row gap-2 shadow-[0_4px_12px_rgba(0,0,0,0.03)]">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full h-10 pl-10 pr-4 bg-transparent border-none focus:ring-0 font-body-md text-body-md text-on-surface placeholder:text-outline-variant rounded-lg" placeholder="Ürün adı ile ara..." type="text"/>
+</div>
+<div class="flex gap-2 border-t sm:border-t-0 sm:border-l border-surface-container pt-2 sm:pt-0 sm:pl-2">
+<button class="flex-1 sm:flex-none h-10 px-4 flex items-center justify-center gap-2 rounded-lg bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
+                    Filtrele
+                </button>
+<button class="flex-1 sm:flex-none h-10 px-4 flex items-center justify-center gap-2 rounded-lg bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="sort">sort</span>
+                    Sırala
+                </button>
+</div>
+</div>
+<!-- Product Grid (Bento/Card Style) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Product Card 1 -->
+<div class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.04)] border border-surface-container-highest transition-all duration-200 hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] group flex flex-col">
+<div class="relative h-48 w-full bg-surface-container-low overflow-hidden">
+<img alt="Karışık Meyve Sepeti" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A beautifully arranged basket of fresh, colorful mixed fruits including apples, oranges, and bananas, presented in a bright, modern setting with soft natural light, emphasizing a fresh, sustainable, and organic lifestyle aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd1Js8m4Ajv28oQn05fwLF9u0DgVlWiiC43bB1ZN0Al8BjkazhWJZzcFiJC-VxLuXYa0O-NT5aOirUbQ-GiTBSjyKs63lwofxiWaSaLcP-1i1k9W5ptqpuikmtzsR7y5oGYg-m7dpc-gCKDDAbENFudyI2VF8_pXQuAgSlpJgz8bg0Lq9O6Ukkvk1ejCJXV7tmh6NfD6OsrUiCMQlYgC62iUDLUNuiK2tal-8Cz9Ynfjg6H6eQY_viXIi7eG7mEYrvUSnhtnlmoekj"/>
+<div class="absolute top-2 left-2 bg-mint-bg text-secondary px-2 py-1 rounded-md font-label-xs text-label-xs font-semibold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[12px]" data-icon="discount">percent_discount</span>
+                        %30 İndirimli
+                    </div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold line-clamp-1">Karışık Meyve Sepeti</h3>
+<div class="relative inline-block w-11 mr-2 align-middle select-none">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="toggle1" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="toggle1"></label>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim fill" data-icon="star" data-weight="fill">star</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">4.8 (24)</span>
+<span class="text-outline-variant text-xs">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Manav</span>
+</div>
+<div class="mt-auto grid grid-cols-2 gap-2 p-3 bg-surface-container-low rounded-lg border border-surface-container">
+<div>
+<p class="font-label-xs text-label-xs text-outline mb-1 uppercase tracking-wider">Stok Durumu</p>
+<p class="font-body-md text-body-md text-on-surface font-medium">12 Adet</p>
+</div>
+<div class="text-right">
+<p class="font-label-xs text-label-xs text-outline mb-1 uppercase tracking-wider">Fiyat</p>
+<div class="flex items-center justify-end gap-1.5">
+<span class="font-body-sm text-body-sm text-subtle-text line-through decoration-1">120₺</span>
+<span class="font-price-label text-price-label text-primary-container">84₺</span>
+</div>
+</div>
+</div>
+<div class="mt-3 flex gap-2">
+<button class="flex-1 h-10 border border-surface-container-highest rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span> Düzenle
+                        </button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.04)] border border-surface-container-highest transition-all duration-200 hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] group flex flex-col opacity-70">
+<div class="relative h-48 w-full bg-surface-container-low overflow-hidden">
+<img alt="Artizan Ekşi Mayalı Ekmek" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 grayscale-[30%]" data-alt="A rustic artisan sourdough bread loaf resting on a wooden cutting board in a warm, inviting bakery setting. The lighting highlights the crusty texture, evoking a traditional, sustainable, and high-quality food aesthetic within a corporate modern design context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDThsJGzYd0xJPqG4RZ9EAo2w_Bd1gER41Bm0Vk2_FVPnJjre7Owz0vNZfsO8cgYTSCzt0sX2aKU4pTUvPzHdQbJYgAQ5rKVNneqNTcOx1dQtN4Jx1LLGVWisbk7laeYYNm3HTyMtYRE6d8QxgR9BfnGj1fL4KGtYiWXZfvTS8-x7yOTBr3IgwKY1H7_a3Tsy8qJJ4dX09g6NmuzA6j5BYnDZew3jd_Ya3RkR1dxIsUGDNH7Ck7DXQ2rNuQJpCJXF4y14XmLfe6qSxB"/>
+<div class="absolute inset-0 bg-surface/40 flex items-center justify-center backdrop-blur-[2px]">
+<span class="bg-surface text-on-surface px-3 py-1.5 rounded-lg font-body-sm text-body-sm font-semibold shadow-sm border border-surface-container">Pasif Ürün</span>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold line-clamp-1">Ekşi Mayalı Ekmek</h3>
+<div class="relative inline-block w-11 mr-2 align-middle select-none">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="toggle2" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="toggle2"></label>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim fill" data-icon="star" data-weight="fill">star</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">5.0 (41)</span>
+<span class="text-outline-variant text-xs">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Fırın</span>
+</div>
+<div class="mt-auto grid grid-cols-2 gap-2 p-3 bg-surface-container-low rounded-lg border border-surface-container">
+<div>
+<p class="font-label-xs text-label-xs text-outline mb-1 uppercase tracking-wider">Stok Durumu</p>
+<p class="font-body-md text-body-md text-error font-medium">0 Adet (Tükendi)</p>
+</div>
+<div class="text-right">
+<p class="font-label-xs text-label-xs text-outline mb-1 uppercase tracking-wider">Fiyat</p>
+<div class="flex items-center justify-end gap-1.5">
+<span class="font-price-label text-price-label text-on-surface">45₺</span>
+</div>
+</div>
+</div>
+<div class="mt-3 flex gap-2">
+<button class="flex-1 h-10 border border-surface-container-highest rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span> Düzenle
+                        </button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-surface rounded-xl overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.04)] border border-surface-container-highest transition-all duration-200 hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] group flex flex-col">
+<div class="relative h-48 w-full bg-surface-container-low overflow-hidden">
+<img alt="Organik Sebze Kasesi" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A vibrant bowl of fresh organic vegetables, including greens, tomatoes, and cucumbers, set on a clean, light surface. The lighting is bright and modern, reflecting a healthy, sustainable lifestyle choice suitable for a clean, corporate app interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtXtQ403aTWXg5fChqQGotaxTAstrbtJwRFdTquVnmf1ColvjQXw3PwNHhFMqke3Q-LxtdPrD6Ly7SIbzlmTjp5e1_OW_jshETjBO-z0WhhYjsoawDCXns6bnDu49qhDIP8zaaw7hZp5D00l9aXaX7RzmU8WaXf7vfxPTLri-nV3oGjruz3POjcFP8lPdmIrZ26L3lO3dRCccmt4QL9sZ1uqpkyn1v_Zi6ipK3GoTb-oS9ResFOFteX1N-SDVuW0XRZCKAM5Ui21Ws"/>
+<div class="absolute top-2 left-2 bg-warm-bg text-tertiary-container px-2 py-1 rounded-md font-label-xs text-label-xs font-semibold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[12px]" data-icon="schedule">schedule</span>
+                        Son 2 Saat
+                    </div>
+</div>
+<div class="p-4 flex flex-col flex-1">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold line-clamp-1">Organik Sebze Kasesi</h3>
+<div class="relative inline-block w-11 mr-2 align-middle select-none">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" id="toggle3" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="toggle3"></label>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim fill" data-icon="star" data-weight="fill">star</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">4.5 (12)</span>
+<span class="text-outline-variant text-xs">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Restoran</span>
+</div>
+<div class="mt-auto grid grid-cols-2 gap-2 p-3 bg-surface-container-low rounded-lg border border-surface-container">
+<div>
+<p class="font-label-xs text-label-xs text-outline mb-1 uppercase tracking-wider">Stok Durumu</p>
+<p class="font-body-md text-body-md text-on-surface font-medium">5 Adet</p>
+</div>
+<div class="text-right">
+<p class="font-label-xs text-label-xs text-outline mb-1 uppercase tracking-wider">Fiyat</p>
+<div class="flex items-center justify-end gap-1.5">
+<span class="font-body-sm text-body-sm text-subtle-text line-through decoration-1">150₺</span>
+<span class="font-price-label text-price-label text-primary-container">89₺</span>
+</div>
+</div>
+</div>
+<div class="mt-3 flex gap-2">
+<button class="flex-1 h-10 border border-surface-container-highest rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span> Düzenle
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full h-16 flex justify-around items-center px-4 pb-safe bg-surface shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-50 rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-1 scale-95 active:scale-90 transition-transform active:bg-surface-container-high rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+<span class="font-label-xs text-label-xs mt-1">Siparişler</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-2xl px-6 py-1 scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined fill" data-icon="box" data-weight="fill">box</span>
+<span class="font-label-xs text-label-xs mt-1 font-medium">Ürünler</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-1 scale-95 active:scale-90 transition-transform active:bg-surface-container-high rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-xs text-label-xs mt-1">Raporlar</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-1 scale-95 active:scale-90 transition-transform active:bg-surface-container-high rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-xs text-label-xs mt-1">Profil</span>
+</a>
+</nav>
+</body></html>

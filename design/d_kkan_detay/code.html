@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Artisan Bakery - Yetiş</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#93000a",
+                      "primary": "#005440",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed-variant": "#673d00",
+                      "on-tertiary-fixed": "#2b1700",
+                      "on-primary": "#ffffff",
+                      "info-bg": "#E6F1FB",
+                      "surface-container-low": "#f6f3f2",
+                      "surface-dim": "#dcd9d9",
+                      "on-tertiary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "outline": "#6f7a74",
+                      "on-primary-container": "#9aedcf",
+                      "on-secondary-container": "#007151",
+                      "tertiary": "#6b3f00",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed-dim": "#ffb869",
+                      "secondary-fixed": "#86f8c9",
+                      "inverse-surface": "#313030",
+                      "primary-fixed-dim": "#84d6b9",
+                      "on-tertiary-container": "#ffd5ac",
+                      "surface-container-high": "#eae7e7",
+                      "tertiary-container": "#8c5400",
+                      "on-primary-fixed-variant": "#00513e",
+                      "surface-container": "#f0eded",
+                      "mint-bg": "#E1F5EE",
+                      "outline-variant": "#bec9c3",
+                      "on-surface-variant": "#3f4944",
+                      "on-secondary-fixed": "#002115",
+                      "info-blue": "#185FA5",
+                      "secondary": "#006c4e",
+                      "on-background": "#1c1b1b",
+                      "primary-fixed": "#a0f3d4",
+                      "on-secondary-fixed-variant": "#00513a",
+                      "tertiary-fixed": "#ffdcbb",
+                      "surface-bright": "#fcf9f8",
+                      "subtle-text": "#6B6B6B",
+                      "inverse-on-surface": "#f3f0ef",
+                      "surface-tint": "#086b53",
+                      "surface": "#fcf9f8",
+                      "secondary-container": "#83f5c6",
+                      "secondary-fixed-dim": "#68dbae",
+                      "warm-bg": "#FAEEDA",
+                      "background": "#fcf9f8",
+                      "on-surface": "#1c1b1b",
+                      "on-primary-fixed": "#002117",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#0f6e56",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e5e2e1",
+                      "surface-variant": "#e5e2e1",
+                      "inverse-primary": "#84d6b9"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "md": "16px",
+                      "lg": "24px",
+                      "margin-desktop": "32px",
+                      "xl": "32px",
+                      "margin-mobile": "16px",
+                      "gutter": "16px",
+                      "base": "4px",
+                      "xs": "8px",
+                      "sm": "12px"
+              },
+              "fontFamily": {
+                      "label-xs": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "price-label": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "label-xs": ["11px", {"lineHeight": "14px", "fontWeight": "500"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                      "price-label": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                      "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar to hide it for category tabs */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased pb-24 md:pb-0">
+<!-- Mobile Top Header (Transparent overlay on image) -->
+<header class="fixed top-0 w-full z-40 flex justify-between items-center px-margin-mobile py-sm md:hidden">
+<button aria-label="Geri" class="bg-surface/80 backdrop-blur-md p-2 rounded-full shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<button aria-label="Paylaş" class="bg-surface/80 backdrop-blur-md p-2 rounded-full shadow-sm active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-on-surface">share</span>
+</button>
+</header>
+<!-- Desktop Navigation (Replaces mobile header on larger screens) -->
+<nav class="hidden md:flex bg-surface dark:bg-surface-dim shadow-sm w-full top-0 sticky z-50 flex justify-between items-center px-margin-desktop py-sm">
+<div class="flex items-center gap-4">
+<button aria-label="Geri" class="p-2 rounded-full hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+<span class="font-headline-lg font-bold text-primary dark:text-primary-fixed">Yetiş</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">search</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">notifications</span>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto md:px-margin-desktop md:py-lg md:grid md:grid-cols-12 md:gap-lg">
+<!-- Left Column: Shop Info & Image (Sticky on Desktop) -->
+<div class="md:col-span-4 lg:col-span-3">
+<div class="md:sticky md:top-24">
+<!-- Cover Image -->
+<div class="relative w-full h-56 md:h-64 md:rounded-xl overflow-hidden shadow-sm">
+<img alt="Artisan Bakery Storefront" class="w-full h-full object-cover" data-alt="A warm and inviting artisan bakery display seen through a bright window. Freshly baked artisan breads, pastries, and croissants are arranged beautifully on wooden shelves. The lighting is soft and golden, creating a cozy, high-quality culinary atmosphere. The overall style is modern and organic, fitting a premium, eco-conscious corporate aesthetic with subtle earthy tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8c2ROlv67EWmPsS3wC6_L2__CLptqR3gMowJ-thHGrfB5HosbZYIo9nqTNL-9uBJSa3WQN2qxbTUv5JqQJnp8SCop5LHfZJDleUtnzxWPHCpNLSyaHCNuAAPuysuLPtjNkCnvioTmu3y3mL5E08fi6BrXhSRKm8TFfyHjZKH9gzY7VuQI9wdnUskRekV_wS8VG5J0eH6gMD7btEjwiJAZxyySKI2Uddi_7Ew8DLb9i_9pn7I3iY-LiAF99HtLAyLpp9QK3OjL3Hix"/>
+<!-- Gradient overlay for text readability if needed -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent md:hidden"></div>
+</div>
+<!-- Shop Details Container -->
+<div class="bg-surface px-margin-mobile py-lg -mt-4 relative z-10 rounded-t-xl md:mt-4 md:rounded-xl md:shadow-sm md:p-lg border-b border-surface-variant md:border-none">
+<div class="flex justify-between items-start mb-xs">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-on-surface">Artisan Bakery</h1>
+<div class="flex items-center bg-mint-bg px-2 py-1 rounded-md">
+<span class="material-symbols-outlined filled text-primary text-sm mr-1">star</span>
+<span class="font-price-label text-primary">4.8</span>
+</div>
+</div>
+<p class="font-body-md text-subtle-text mb-sm flex items-start gap-1">
+<span class="material-symbols-outlined text-[18px] mt-0.5">location_on</span>
+<span>Moda Cd. No: 123, Kadıköy</span>
+</p>
+<div class="flex flex-wrap gap-sm mb-lg">
+<div class="bg-warm-bg text-tertiary-container px-sm py-xs rounded-full font-label-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                            Kapanış: 20:00
+                        </div>
+<div class="bg-info-bg text-info-blue px-sm py-xs rounded-full font-label-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">eco</span>
+                            15kg Kurtarıldı
+                        </div>
+</div>
+<div class="bg-surface-container-low p-sm rounded-lg flex items-center gap-sm">
+<div class="bg-primary-container p-2 rounded-full shrink-0">
+<span class="material-symbols-outlined text-on-primary">local_mall</span>
+</div>
+<div>
+<h3 class="font-body-sm font-semibold text-on-surface">Sürpriz Paket</h3>
+<p class="font-label-xs text-subtle-text">Günün kalan taze ürünleri</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Products List -->
+<div class="md:col-span-8 lg:col-span-9 bg-surface pt-md pb-24 md:pb-0 md:bg-transparent">
+<!-- Categories Sticky Header -->
+<div class="sticky top-0 md:top-24 bg-surface/95 backdrop-blur-sm z-30 px-margin-mobile py-sm border-b border-surface-variant md:rounded-xl md:mb-md md:px-md">
+<div class="flex overflow-x-auto gap-sm no-scrollbar">
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-primary text-on-primary font-body-sm font-medium transition-colors">Tüm Ürünler</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container text-on-surface hover:bg-surface-variant font-body-sm font-medium transition-colors">Tatlılar</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container text-on-surface hover:bg-surface-variant font-body-sm font-medium transition-colors">Tuzlular</button>
+<button class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container text-on-surface hover:bg-surface-variant font-body-sm font-medium transition-colors">Ekmekler</button>
+</div>
+</div>
+<div class="px-margin-mobile py-md md:px-0">
+<!-- Category Section: Tatlılar -->
+<div class="mb-xl">
+<h2 class="font-headline-md text-on-surface mb-md">Tatlılar</h2>
+<!-- Products Grid/List -->
+<div class="flex flex-col gap-md md:grid md:grid-cols-2 lg:grid-cols-2">
+<!-- Product Item 1 -->
+<div class="flex gap-md bg-surface border border-surface-variant rounded-xl p-sm shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<!-- Visual cue for rescue -->
+<div class="absolute top-0 right-0 bg-secondary-container text-on-secondary-container font-label-xs px-2 py-1 rounded-bl-lg">
+                                Kurtar
+                            </div>
+<div class="w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Çikolatalı Kruvasan" class="w-full h-full object-cover" data-alt="A close-up shot of a perfectly baked chocolate croissant resting on a minimalist white ceramic plate. The pastry is flaky and golden brown, with rich dark chocolate slightly oozing from the center. The background is softly blurred, showing hints of a modern cafe setting with light mint and warm natural wood accents. The lighting is bright and natural, creating an appetizing, premium look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Aws7ny3D2JERKxJuPfU-fn1Ovbp-hJdturZx3GFBO2-RVeT12xVPF9MSVmfw_OekEwPeqc8AIt_OBiAG0adQSubCXApBxF6Vdgk8uFWXHJfFJOzVsuiaGebKNL_8agfPM0f5YwZVta8xlBevSLVy1sTIQ2_s07XMN5yJ0-E9JOVsSGjulnWaHlq7pl7kBVdSRTe18gxr5Zy-XCmhJ0pJYSeQ7GhqIsv695nl53rFQjJeEF9RnBVPfUxwJFWE_wxGB0kwAerySiJs"/>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<h3 class="font-body-md font-semibold text-on-surface line-clamp-2">Çikolatalı Kruvasan (2'li)</h3>
+<p class="font-body-sm text-subtle-text mt-1">Günlük üretim</p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<div class="flex flex-col">
+<span class="font-body-sm text-subtle-text line-through">120 TL</span>
+<span class="font-price-label text-primary">60 TL</span>
+</div>
+<button aria-label="Sepete Ekle" class="bg-mint-bg border border-primary-container text-primary-container p-2 rounded-full hover:bg-primary-container hover:text-on-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Product Item 2 -->
+<div class="flex gap-md bg-surface border border-surface-variant rounded-xl p-sm shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-secondary-container text-on-secondary-container font-label-xs px-2 py-1 rounded-bl-lg">
+                                Kurtar
+                            </div>
+<div class="w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Limonlu Tart" class="w-full h-full object-cover" data-alt="A slice of vibrant lemon tart on a clean, modern saucer. The bright yellow filling contrasts beautifully with a toasted meringue topping and a buttery crust. The scene is brightly lit with natural daylight, emphasizing the fresh, zesty nature of the dessert. The surrounding area is clean and corporate-modern with subtle organic hints like a soft green napkin." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEr1mBCW3Rn2m1i2-4lhdxvT_WlyV88Q_7TbONpHJgpvzxE9TsD3yhdlnBi9zW69B5khAvr1wIjli-yxr698tUkQsiMlrG-nVwitDFr7cqcLi33caPuecYjM7LUWsnw-p8B72eJNktjUpIGbXiAZFcFo7OpRvSqvPwjYFIonYIikjTFlh2z5R2pOyOwNTY-tUjHbNzvl6d-zUmuTfwvXspU7nOtgnt0yprjgMaTBVCSkbflmZARsoPC3uNXsKHJE8iFm-5v1ihII_j"/>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<h3 class="font-body-md font-semibold text-on-surface line-clamp-2">Limonlu Tart Dilimi</h3>
+<p class="font-body-sm text-subtle-text mt-1">Son 2 adet</p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<div class="flex flex-col">
+<span class="font-body-sm text-subtle-text line-through">95 TL</span>
+<span class="font-price-label text-primary">45 TL</span>
+</div>
+<button aria-label="Sepete Ekle" class="bg-mint-bg border border-primary-container text-primary-container p-2 rounded-full hover:bg-primary-container hover:text-on-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Category Section: Tuzlular -->
+<div class="mb-xl">
+<h2 class="font-headline-md text-on-surface mb-md">Tuzlular</h2>
+<div class="flex flex-col gap-md md:grid md:grid-cols-2 lg:grid-cols-2">
+<!-- Product Item 3 -->
+<div class="flex gap-md bg-surface border border-surface-variant rounded-xl p-sm shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 bg-secondary-container text-on-secondary-container font-label-xs px-2 py-1 rounded-bl-lg">
+                                Kurtar
+                            </div>
+<div class="w-24 h-24 md:w-32 md:h-32 shrink-0 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Peynirli Poğaça" class="w-full h-full object-cover" data-alt="A rustic wooden board displaying several freshly baked cheese savory pastries (poğaça). The pastries have a golden crust sprinkled with sesame seeds. The image is taken from a slightly elevated angle in a well-lit, contemporary kitchen setting. The color palette is earthy and warm, aligning with a reliable, tactile, and eco-friendly brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW8oCbvIHbvdWIxOLPf0RRIvvu0NONLUXmAzr-QONaRnUs9UL5ftGNzP3fcUyWX_uWkxpi_081TrTakPlV5DeFPoE8l6eHXpbUvHeGwsTRMcaDEmRPNKQEFrBOHjFDX7igjTfeBqvGqq1cZ8q2IPA_Yi_FNaZUG7hq0vD_hVWdn-P421PskZ47l5vZ0xfVgDH6_Sg0SBa6cnic-YP75Du_I-4uMt71XCrvf_4vRRuxClUJbruZSGoHyFaRKh8Wuvy9NClH16Uy_lfQ"/>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<h3 class="font-body-md font-semibold text-on-surface line-clamp-2">Peynirli Poğaça (3'lü)</h3>
+<p class="font-body-sm text-subtle-text mt-1">Beyaz peynirli, maydanozlu</p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<div class="flex flex-col">
+<span class="font-body-sm text-subtle-text line-through">75 TL</span>
+<span class="font-price-label text-primary">35 TL</span>
+</div>
+<button aria-label="Sepete Ekle" class="bg-mint-bg border border-primary-container text-primary-container p-2 rounded-full hover:bg-primary-container hover:text-on-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky Footer Cart Summary -->
+<div class="fixed bottom-0 left-0 w-full bg-surface dark:bg-surface-container-lowest shadow-[0_-4px_12px_0_rgba(0,0,0,0.08)] z-50 px-margin-mobile py-sm pb-safe md:px-margin-desktop rounded-t-xl md:rounded-none">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-xs text-subtle-text">Sepet Toplamı (1 Ürün)</span>
+<span class="font-headline-md text-primary">60 TL</span>
+</div>
+<button class="bg-primary-container text-on-primary h-12 px-6 rounded-lg font-body-md font-semibold flex items-center justify-center gap-2 hover:bg-primary transition-colors active:scale-95 shadow-sm hover:shadow-md">
+<span>Sepete Git</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

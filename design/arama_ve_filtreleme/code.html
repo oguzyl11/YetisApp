@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Yetiş - Arama</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#84d6b9",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "tertiary-fixed-dim": "#ffb869",
+                        "on-background": "#1c1b1b",
+                        "secondary-container": "#83f5c6",
+                        "surface-tint": "#086b53",
+                        "tertiary-fixed": "#ffdcbb",
+                        "on-tertiary-container": "#ffd5ac",
+                        "surface": "#fcf9f8",
+                        "inverse-primary": "#84d6b9",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#8c5400",
+                        "outline-variant": "#bec9c3",
+                        "on-error": "#ffffff",
+                        "secondary": "#006c4e",
+                        "on-primary-fixed": "#002117",
+                        "inverse-on-surface": "#f3f0ef",
+                        "surface-variant": "#e5e2e1",
+                        "on-secondary-container": "#007151",
+                        "surface-container": "#f0eded",
+                        "on-secondary-fixed": "#002115",
+                        "primary-container": "#0f6e56",
+                        "info-blue": "#185FA5",
+                        "subtle-text": "#6B6B6B",
+                        "surface-bright": "#fcf9f8",
+                        "primary-fixed": "#a0f3d4",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#eae7e7",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#86f8c9",
+                        "secondary-fixed-dim": "#68dbae",
+                        "on-surface-variant": "#3f4944",
+                        "background": "#fcf9f8",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-surface": "#1c1b1b",
+                        "on-primary-container": "#9aedcf",
+                        "warm-bg": "#FAEEDA",
+                        "on-secondary-fixed-variant": "#00513a",
+                        "on-primary-fixed-variant": "#00513e",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#2b1700",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#313030",
+                        "tertiary": "#6b3f00",
+                        "mint-bg": "#E1F5EE",
+                        "outline": "#6f7a74",
+                        "surface-dim": "#dcd9d9",
+                        "primary": "#005440",
+                        "info-bg": "#E6F1FB"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "lg": "24px",
+                        "xs": "8px",
+                        "base": "4px",
+                        "xl": "32px",
+                        "sm": "12px",
+                        "md": "16px",
+                        "margin-desktop": "32px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "price-label": ["Inter"],
+                        "label-xs": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "price-label": ["14px", { "lineHeight": "20px", "fontWeight": "700" }],
+                        "label-xs": ["11px", { "lineHeight": "14px", "fontWeight": "500" }],
+                        "headline-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["20px", { "lineHeight": "28px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .custom-shadow {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen font-body-md antialiased selection:bg-primary-container selection:text-on-primary">
+<!-- TopAppBar from JSON -->
+<header class="flex items-center justify-between px-margin-mobile h-14 w-full z-50 bg-surface dark:bg-surface-container shadow-sm sticky top-0">
+<button aria-label="Menü" class="p-2 -ml-2 text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity active:scale-95 duration-150 rounded-full">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-primary-fixed-dim tracking-tight">Yetiş</h1>
+<button aria-label="Bildirimler" class="p-2 -mr-2 text-primary dark:text-primary-fixed-dim hover:opacity-80 transition-opacity active:scale-95 duration-150 rounded-full">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col w-full max-w-[600px] mx-auto px-margin-mobile pt-sm pb-24">
+<!-- Search Input Area -->
+<div class="relative w-full mb-md">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-subtle-text">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl py-[14px] pl-10 pr-sm font-body-md text-body-md text-on-surface placeholder:text-subtle-text focus:outline-none focus:ring-2 focus:ring-primary-container focus:border-transparent transition-all custom-shadow" placeholder="Dükkan, ürün veya kategori ara..." type="text"/>
+<button class="absolute right-sm top-1/2 -translate-y-1/2 bg-surface-variant p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 0;">tune</span>
+</button>
+</div>
+<!-- Filter Chips (Horizontal Scroll) -->
+<div class="flex overflow-x-auto gap-xs pb-sm no-scrollbar -mx-margin-mobile px-margin-mobile">
+<!-- Active Chip -->
+<button class="flex items-center gap-1 shrink-0 px-4 py-2 rounded-full border border-primary-container bg-primary-container text-on-primary-container font-label-xs text-label-xs transition-colors active:scale-95">
+<span>Tümü</span>
+</button>
+<!-- Inactive Chips -->
+<button class="flex items-center gap-1 shrink-0 px-4 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:bg-surface-variant font-label-xs text-label-xs transition-colors active:scale-95">
+<span>Mutfak Tipi</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<button class="flex items-center gap-1 shrink-0 px-4 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:bg-surface-variant font-label-xs text-label-xs transition-colors active:scale-95">
+<span>Uzaklık</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+<button class="flex items-center gap-1 shrink-0 px-4 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:bg-surface-variant font-label-xs text-label-xs transition-colors active:scale-95">
+<span>Puan: 4.0+</span>
+</button>
+<button class="flex items-center gap-1 shrink-0 px-4 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:bg-surface-variant font-label-xs text-label-xs transition-colors active:scale-95">
+<span>Sadece Gel-Al</span>
+</button>
+</div>
+<div class="mt-md mb-sm flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface">Yakınındaki Dükkanlar</h2>
+<span class="font-body-sm text-body-sm text-subtle-text">24 sonuç</span>
+</div>
+<!-- Shop List -->
+<div class="flex flex-col gap-md">
+<!-- Shop Card 1 -->
+<div class="flex flex-row bg-surface-container-lowest rounded-xl custom-shadow border border-surface-variant overflow-hidden cursor-pointer hover:bg-surface-container-lowest/80 transition-colors group">
+<!-- Image -->
+<div class="w-[110px] sm:w-[130px] shrink-0 bg-surface-variant relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="A high-quality, bright photograph of a modern rustic bakery interior displaying an array of freshly baked artisan breads and pastries. The warm, inviting lighting highlights the golden crusts of the bread against soft white and natural wood surfaces. The composition evokes a clean, light-mode aesthetic, emphasizing an organic, sustainable, and high-quality food environment. Subtle green branding elements hint at eco-friendliness." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAYAvogwwVHnbSmpF05HDUhaQgcx3VcJEZa_HDveS5S4wd-4ru3BA7bymUDHgM5gee3Nosf6GykUze_DSdcfwovMUpsGQww08NfdjjM-biUOO6XeE7yFdxeCffhgZSkEutuSXuTJ-AwtTOAfuklNiXdHqk6jrsBtzp_bRuxEGspI3aDFojtAwf-NeO177LztrFZ4pmbsnmZem1JvUWDkUOJ8oSaINHhc8wlJa8yjEkfwbNG9jYkQGg_aNKekAPlM8k33gZ9ysF8MT9y');">
+</div>
+<!-- Remaining items badge -->
+<div class="absolute bottom-2 left-2 bg-inverse-surface/80 backdrop-blur-sm text-inverse-on-surface px-2 py-0.5 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">inventory_2</span>
+<span class="font-label-xs text-label-xs">5 Paket</span>
+</div>
+</div>
+<!-- Content -->
+<div class="flex-1 p-sm flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start gap-2 mb-1">
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight line-clamp-1">Karaköy Fırını</h3>
+<div class="flex items-center gap-0.5 bg-surface-container-high px-1.5 py-0.5 rounded text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-xs text-label-xs">4.8</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-subtle-text line-clamp-1">Fırın • Tatlı • Pastane</p>
+</div>
+<div class="mt-2 flex items-center justify-between">
+<div class="flex items-center gap-1 text-subtle-text">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="font-label-xs text-label-xs">1.2 km</span>
+</div>
+<!-- Delivery Type Badge -->
+<div class="bg-mint-bg text-on-secondary-container px-2 py-1 rounded-md font-label-xs text-label-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">directions_walk</span>
+                            Gel-Al
+                        </div>
+</div>
+</div>
+</div>
+<!-- Shop Card 2 -->
+<div class="flex flex-row bg-surface-container-lowest rounded-xl custom-shadow border border-surface-variant overflow-hidden cursor-pointer hover:bg-surface-container-lowest/80 transition-colors group">
+<div class="w-[110px] sm:w-[130px] shrink-0 bg-surface-variant relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="A vibrant close-up shot of a local organic grocery store display featuring perfectly organized, brightly colored fresh fruits and vegetables. The clean, minimalist wooden crates sit under bright, even lighting, creating a fresh and modern visual. The light-mode aesthetic is emphasized by soft background tones, making the natural greens, reds, and yellows of the produce pop, reflecting a healthy and sustainable lifestyle." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAebdAy3b4i407aOrOp2tWDHrfYw6R-SEHsC_zL2A05xnfekNOLZNNYa6TrfTkpDVwAikV2NzC9biWUjyILBfKqYNPfxmfY50CcT95Q_ttN4TAsO29uefxoe-MPteKDNTf6ECmvQbCKafjxNj7jyJyOer2cK5Cd2s794GX7ffWRU_nerKvJlKclIK6NBOS5syFfmnizdo1brKzDdMOwU5R0nhd1sqCtySJBU1bnVjDg9_CmPWJ9DbmSFEr903bqIgtnWmWgtOTGdS5p');">
+</div>
+<div class="absolute bottom-2 left-2 bg-inverse-surface/80 backdrop-blur-sm text-inverse-on-surface px-2 py-0.5 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">inventory_2</span>
+<span class="font-label-xs text-label-xs">12 Paket</span>
+</div>
+</div>
+<div class="flex-1 p-sm flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start gap-2 mb-1">
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight line-clamp-1">Yeşil Manav &amp; Şarküteri</h3>
+<div class="flex items-center gap-0.5 bg-surface-container-high px-1.5 py-0.5 rounded text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-xs text-label-xs">4.5</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-subtle-text line-clamp-1">Market • Manav • Organik</p>
+</div>
+<div class="mt-2 flex items-center justify-between">
+<div class="flex items-center gap-1 text-subtle-text">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="font-label-xs text-label-xs">2.4 km</span>
+</div>
+<!-- Delivery Type Badge -->
+<div class="bg-warm-bg text-on-tertiary-fixed-variant px-2 py-1 rounded-md font-label-xs text-label-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">two_wheeler</span>
+                            Kurye
+                        </div>
+</div>
+</div>
+</div>
+<!-- Shop Card 3 -->
+<div class="flex flex-row bg-surface-container-lowest rounded-xl custom-shadow border border-surface-variant overflow-hidden cursor-pointer hover:bg-surface-container-lowest/80 transition-colors group">
+<div class="w-[110px] sm:w-[130px] shrink-0 bg-surface-variant relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="A beautifully plated warm meal from a cozy, modern urban restaurant, captured in high-key lighting to enhance a light-mode UI aesthetic. The setting features light wooden textures and minimal background clutter, focusing heavily on the inviting, hearty dish in the foreground. The color palette incorporates subtle earthy greens and warm ambers, conveying a premium yet accessible culinary experience." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAB7sUynMYQJLtxP26dUeb9UjS7ABKDTpwcJ1uMNAQYLkoeuHNdRWmMX2Wt_LH6NLzBtzqUF-vuWwyMjH-M6ydFXSmhloZQTLtcGExx_SHv9w-TtD56OfI8yqMBF4OPu8cANl6nzIzdDUQQ3q9Ivf0Su0YEXpeDC0yuYKIWndptHxQ9q46_LeHK4VW2YpHdxi2H0fNr00RzVmsQsc8cvk0upi9v0qh2YbnRDsfhRFkr0rXjoi3nREgd6QPb3XJJrKrkEvAizIKz6fqH');">
+</div>
+<div class="absolute bottom-2 left-2 bg-error text-on-error px-2 py-0.5 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+<span class="font-label-xs text-label-xs">Son 1!</span>
+</div>
+</div>
+<div class="flex-1 p-sm flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start gap-2 mb-1">
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight line-clamp-1">Lokanta 1980</h3>
+<div class="flex items-center gap-0.5 bg-surface-container-high px-1.5 py-0.5 rounded text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-xs text-label-xs">4.9</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-subtle-text line-clamp-1">Ev Yemekleri • Türk Mutfağı</p>
+</div>
+<div class="mt-2 flex items-center justify-between">
+<div class="flex items-center gap-1 text-subtle-text">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="font-label-xs text-label-xs">0.8 km</span>
+</div>
+<div class="bg-mint-bg text-on-secondary-container px-2 py-1 rounded-md font-label-xs text-label-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">directions_walk</span>
+                            Gel-Al
+                        </div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar from JSON (Visible on Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface dark:bg-surface-container-low border-t border-outline-variant dark:border-outline shadow-md rounded-t-xl pb-safe">
+<!-- Inactive Tab 0 -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 hover:bg-surface-variant dark:hover:bg-surface-container-high active:scale-90 duration-200 rounded-xl group">
+<span class="material-symbols-outlined text-[24px] mb-1 group-hover:scale-110 transition-transform">explore</span>
+<span class="font-label-xs text-label-xs">Keşfet</span>
+</button>
+<!-- Active Tab 1: Arama (Based on intent hierarchy) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-fixed-variant text-on-secondary-container dark:text-secondary-fixed rounded-xl px-3 py-1 active:scale-90 duration-200">
+<span class="material-symbols-outlined text-[24px] mb-1" style="font-variation-settings: 'FILL' 1;">search</span>
+<span class="font-label-xs text-label-xs">Arama</span>
+</button>
+<!-- Inactive Tab 2 -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 hover:bg-surface-variant dark:hover:bg-surface-container-high active:scale-90 duration-200 rounded-xl group">
+<span class="material-symbols-outlined text-[24px] mb-1 group-hover:scale-110 transition-transform">receipt_long</span>
+<span class="font-label-xs text-label-xs">Siparişlerim</span>
+</button>
+<!-- Inactive Tab 3 -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1 hover:bg-surface-variant dark:hover:bg-surface-container-high active:scale-90 duration-200 rounded-xl group">
+<span class="material-symbols-outlined text-[24px] mb-1 group-hover:scale-110 transition-transform">person</span>
+<span class="font-label-xs text-label-xs">Profil</span>
+</button>
+</nav>
+<!-- Support for safe area on newer mobile devices -->
+<style>
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+    </style>
+</body></html>
