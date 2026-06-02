@@ -1,32 +1,29 @@
 import 'package:flutter/material.dart';
 import 'screens/onboarding_screen.dart';
+import 'screens/login_screen.dart';
+// import 'screens/home_screen.dart'; // Bu dosyayı da oluşturduğunda yorumu kaldır
 
 void main() {
-  runApp(const YetisApp());
+  runApp(YetisApp());
 }
 
 class YetisApp extends StatelessWidget {
-  const YetisApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Yetiş',
-      debugShowCheckedModeBanner:
-          false, // Sağ üstteki "Debug" şeridini kaldırır
+      title: 'YetişApp',
       theme: ThemeData(
-        useMaterial3: true,
-        // Markamızın ana renk paletini tanımlıyoruz
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF005440),
-          primary: const Color(0xFF005440),
-          secondary: const Color(0xFF0F6E56),
-          background: const Color(0xFFFCF9F8),
-        ),
-        fontFamily: 'Roboto', // Evrensel ve temiz bir font
+        primarySwatch:
+            Colors.green, // Gıda israfını önleme konseptine uygun bir renk
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // Uygulama ilk açıldığında gösterilecek başlangıç ekranı
-      home: const OnboardingScreen(),
+      initialRoute: '/',
+      routes: {
+        // Rotaları (ekranları) burada tanımlıyoruz
+        '/': (context) => OnboardingScreen(),
+        '/login': (context) => LoginScreen(),
+        // '/home': (context) => HomeScreen(),
+      },
     );
   }
 }
