@@ -1,191 +1,166 @@
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  const OnboardingScreen({Key? key}) : super(key: key);
+  const OnboardingScreen({Key?关键}) : super(key: key);
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
+  _OnboardingScreenState createState() => _OnboardingScreenState();
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  // Sayfalar arasında geçişi kontrol eden mekanizma
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
-  // Onboarding içerik listemiz
+  // Tanıtım sayfalarının içerikleri (Tasarım klasöründeki konseptlere uygun olarak)
   final List<Map<String, String>> _onboardingData = [
     {
-      'title': 'Gıda İsrafını Birlikte Önleyelim',
-      'desc':
-          'Restoran, fırın ve marketlerden kalan günlük taze ürünleri kurtararak doğaya ve bütçenize katkıda bulunun.',
-      'image':
-          'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=400',
+      "title": "Ekonomik ve Taze",
+      "description": "Kafeterya, market ve restoranlardaki taze ürünleri çok daha uygun fiyatlara yakala.",
     },
     {
-      'title': 'Ekonomik ve Taze',
-      'desc':
-          'En sevdiğiniz lokal dükkanlardan %70\'e varan indirimlerle hazırlanan taze kurtarma paketlerini sepetinize ekleyin.',
-      'image':
-          'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&q=80&w=400',
+      "title": "Dünyayı Kurtar",
+      "description": "Gıda israfının önüne geçerek hem bütçeni koru hem de çevreye katkıda bulun.",
     },
     {
-      'title': 'Dünyayı Kurtar',
-      'desc':
-          'Her siparişte bir öğünün çöpe gitmesini önle, karbon ayak izini azalt. Kahraman olmaya hazır mısın?',
-      'image':
-          'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&q=80&w=400',
+      "title": "Yetiş ve Al!",
+      "description": "Sana en yakın dükkanlardaki fırsat ilanlarına hızlıca yetiş, tükenmeden teslim al.",
     },
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFCF9F8),
+      backgroundColor: Colors.white,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(24.0),
-          child: Column(
-            children: [
-              // Üst Kısım: Logo ve "Atla" Butonu
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Yetiş',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF005440),
-                      letterSpacing: -0.5,
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      // Login ekranını kodladığımızda oraya yönlendireceğiz
-                    },
-                    child: const Text(
-                      'Atla',
-                      style: TextStyle(
-                        color: Color(0xFF6B6B6B),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-
-              // Orta Kısım: Kaydırılabilir Kartlar
-              Expanded(
-                child: PageView.builder(
-                  controller: _pageController,
-                  onPageChanged: (index) {
-                    setState(() {
-                      _currentPage = index;
-                    });
-                  },
-                  itemCount: _onboardingData.length,
-                  itemBuilder: (context, index) {
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        // Yuvarlak Şık Görsel
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(100),
-                          child: Image.network(
-                            _onboardingData[index]['image']!,
-                            height: 200,
-                            width: 200,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        const SizedBox(height: 32),
-                        // Başlık
-                        Text(
-                          _onboardingData[index]['title']!,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF005440),
-                          ),
-                        ),
-                        const SizedBox(height: 12),
-                        // Açıklama
-                        Text(
-                          _onboardingData[index]['desc']!,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontSize: 14,
-                            color: Color(0xFF3F4944),
-                            height: 1.5,
-                          ),
-                        ),
-                      ],
-                    );
-                  },
+        child: Column(
+          children: [
+            // Üst Kısım: Geç butonu
+            Alignment(
+              alignment: Alignment.topRight,
+              child: TextButton(
+                onPressed: () {
+                  // Doğrudan karşılama/giriş ekranına yönlendir
+                  Navigator.pushReplacementNamed(context, '/welcome');
+                },
+                child: const Text(
+                  'Geç',
+                  style: TextStyle(color: Colors.grey, fontSize: 16),
                 ),
               ),
-
-              // Alt Kısım: Sayfa İndikatörü ve İlerleme Butonu
-              Column(
-                children: [
-                  // Sayfa Noktaları (Indicators)
-                  Row(
+            ),
+            
+            // Orta Kısım: Kaydırılabilir Sayfalar
+            Expanded(
+              child: PageView.builder(
+                controller: _pageController,
+                onPageChanged: (value) {
+                  setState(() {
+                    _currentPage = value;
+                  });
+                },
+                itemCount: _onboardingData.length,
+                itemBuilder: (context, index) => Padding(
+                  padding: const EdgeInsets.all(40.0),
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Görsel Alanı (İleride buraya SVG veya Asset Image eklenebilir)
+                      Container(
+                        height: 250,
+                        width: 250,
+                        decoration: BoxDecoration(
+                          color: Colors.green.shade50,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(
+                          index == 0 
+                              ? Icons.eco 
+                              : index == 1 
+                                  ? Icons.減災 // Her sayfa için farklı bir sembolik ikon
+                                  : Icons.shopping_bag,
+                          size: 100,
+                          color: Colors.green,
+                        ),
+                      ),
+                      const SizedBox(height: 40),
+                      Text(
+                        _onboardingData[index]["title"]!,
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        _onboardingData[index]["description"]!,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            
+            // Alt Kısım: Sayfa Noktaları ve Buton
+            Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // Sayfa İndikatör Noktaları
+                  Row(
                     children: List.generate(
                       _onboardingData.length,
                       (index) => AnimatedContainer(
-                        duration: const Duration(milliseconds: 250),
-                        margin: const EdgeInsets.only(right: 6),
-                        height: 6,
-                        width: _currentPage == index ? 20 : 6,
+                        duration: const Duration(milliseconds: 200),
+                        margin: const EdgeInsets.only(right: 8),
+                        height: 8,
+                        width: _currentPage == index ? 24 : 8,
                         decoration: BoxDecoration(
-                          color: _currentPage == index
-                              ? const Color(0xFF005440)
-                              : Colors.grey.shade300,
-                          borderRadius: BorderRadius.circular(3),
+                          color: _currentPage == index ? Colors.green : Colors.grey.shade300,
+                          borderRadius: BorderRadius.circular(4),
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(height: 32),
-
-                  // Sonraki / Başla Butonu
+                  
+                  // İlerleme veya Başlama Butonu
                   ElevatedButton(
                     onPressed: () {
                       if (_currentPage == _onboardingData.length - 1) {
-                        // Son sayfadaysak giriş/kayıt sayfasına gideceğiz
+                        // Son sayfadaysa Kayıt/Giriş ekranına geç
+                        Navigator.pushReplacementNamed(context, '/welcome');
                       } else {
-                        // Değilse sonraki sayfaya kaydır
+                        // Değilse bir sonraki sayfaya kaydır
                         _pageController.nextPage(
                           duration: const Duration(milliseconds: 300),
-                          curve: Curves.easeInOut,
+                          curve: Curves.easeIn,
                         );
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF0F6E56),
+                      backgroundColor: Colors.green,
                       foregroundColor: Colors.white,
-                      minimumSize: const Size(double.infinity, 48),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(20),
                       ),
-                      elevation: 0,
+                      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                     ),
                     child: Text(
-                      _currentPage == _onboardingData.length - 1
-                          ? 'Maceraya Başla!'
-                          : 'Sonraki',
-                      style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      _currentPage == _onboardingData.length - 1 ? 'Başla' : 'İleri',
+                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

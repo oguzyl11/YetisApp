@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
 import 'screens/onboarding_screen.dart';
-import 'screens/login_screen.dart';
-// import 'screens/home_screen.dart'; // Bu dosyayı da oluşturduğunda yorumu kaldır
+import 'screens/welcome_screen.dart';
 
 void main() {
-  runApp(YetisApp());
+  runApp(const YetisApp());
 }
 
 class YetisApp extends StatelessWidget {
+  const YetisApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'YetişApp',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch:
-            Colors.green, // Gıda israfını önleme konseptine uygun bir renk
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        primarySwatch: Colors.green,
+        scaffoldBackgroundColor: Colors.white,
       ),
+      // Uygulama ilk açıldığında onboarding_screen tetiklenecek
       initialRoute: '/',
       routes: {
-        // Rotaları (ekranları) burada tanımlıyoruz
-        '/': (context) => OnboardingScreen(),
-        '/login': (context) => LoginScreen(),
-        // '/home': (context) => HomeScreen(),
+        '/': (context) => const OnboardingScreen(),
+        '/welcome': (context) => const WelcomeScreen(),
+        // Backend entegrasyonu tamamlandığında buralara login ve register ekranlarını bağlayacaksın:
+        // '/login': (context) => const LoginScreen(),
+        // '/register': (context) => const RegisterScreen(),
       },
     );
   }
